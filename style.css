@@ -1,45 +1,84 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
   font-family: "Playfair Display", serif;
+  width: 100%;
 }
 
 header {
   position: relative;
 }
 
-.background-color-trapeze {
+body::before {
+  content: "";
   position: absolute;
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
-  background-color: oklch(0.715 0.143 215.221);
-  height: 30vh;
-  width: 100%;
   z-index: -1;
+  width: 100%;
+  height: 60vh;
+  background-color: oklch(0.715 0.143 215.221);
+  transform-origin: 0;
+  transform: skewY(-10deg);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  padding: 40px;
 }
 
 figure {
-  text-align: center;
-  margin-bottom: 0;
   max-height: 250px;
+  position: relative;
+  display: inline-block;
+}
+
+header > section {
+  padding: 20px 40px 20px 20px;
+  margin-top: 30px;
+  background-color: oklch(98.4% 0.019 200.873);
 }
 
 figure > img {
-  max-width: 250px;
+  max-height: 300px;
+  width: auto;
+  display: block;
+  object-fit: cover;
+}
+
+header .profiles-icons i {
+  font-size: 1.5em;
+  color: black;
+}
+
+header .profiles-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+header > p {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
 }
 
 figcaption {
   color: black;
-  font-size: 2em;
+  font-size: 2.5em;
   transform: translateY(-100%);
-  margin-left: 5px;
-  margin-right: 5px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 footer {
@@ -51,11 +90,95 @@ ul {
 }
 
 h1 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-weight: lighter;
+  font-size: 1em;
 }
 
 li > p {
   font-size: 10px;
+  padding: 5px 20px 20px;
+  margin-top: 0;
+}
+
+li,
+section {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+li > img {
+  width: 100%;
+  height: (2/3) * 100%;
+  object-fit: cover;
+  border-bottom: 1px solid lightgray;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.my-work {
+  padding: 40px;
+}
+
+.project-link-icons img {
+  max-height: 16px;
+  width: 16px;
+}
+
+.project-link-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+footer p,
+footer h1 {
+  color: white;
+}
+
+.mail > img {
+  max-height: 32px;
+  width: 32px;
+}
+
+footer img {
+  max-width: 400px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 50px;
+  gap: 20px;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer .profiles-icons {
+  display: flex;
+  gap: 20px;
+}
+
+footer .profiles-icons i {
+  font-size: 2.2em;
+  color: black;
 }
