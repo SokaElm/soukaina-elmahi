@@ -4,64 +4,69 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
   font-family: "Playfair Display", serif;
-  width: 100%;
 }
 
-header {
-  position: relative;
-}
-
-body::before {
+main::before {
   content: "";
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 60vh;
+  min-height: 70vh;
   background-color: oklch(0.715 0.143 215.221);
   transform-origin: 0;
-  transform: skewY(-10deg);
+  transform: skewY(-15deg);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header {
   display: flex;
   justify-content: center;
-  padding: 40px;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
 figure {
-  max-height: 250px;
-  position: relative;
-  display: inline-block;
+  max-width: 375px;
+  height: auto;
+}
+
+figure > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+figcaption {
+  transform: translateY(-100%);
+  width: 100%;
+  color: black;
+  font-size: 2em;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgb(103, 102, 102) 50%,
+    transparent 100%
+  );
 }
 
 header > section {
   padding: 20px 40px 20px 20px;
-  margin-top: 30px;
   background-color: oklch(98.4% 0.019 200.873);
-}
-
-figure > img {
-  max-height: 300px;
-  width: auto;
-  display: block;
-  object-fit: cover;
-}
-
-header .profiles-icons i {
-  font-size: 1.5em;
-  color: black;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header .profiles-icons {
   display: flex;
-  justify-content: flex-end;
   gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+header .profiles-icons i {
+  font-size: 2em;
+  color: black;
 }
 
 header > p {
@@ -72,32 +77,22 @@ a {
   text-decoration: none;
 }
 
-figcaption {
-  color: black;
-  font-size: 2.5em;
-  transform: translateY(-100%);
-  position: absolute;
-  width: 100%;
-  text-align: center;
-}
-
-footer {
-  background-color: oklch(0.715 0.143 215.221);
-}
-
-ul {
-  list-style-type: none;
-}
-
 h1 {
   font-size: 2em;
   font-weight: lighter;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 h2 {
   font-weight: lighter;
   font-size: 1em;
+  text-align: center;
+}
+
+li {
+  margin: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 li > p {
@@ -106,26 +101,17 @@ li > p {
   margin-top: 0;
 }
 
-li,
-section {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 li > img {
   width: 100%;
-  height: (2/3) * 100%;
+  height: calc((2 / 3) * 100%);
   object-fit: cover;
   border-bottom: 1px solid lightgray;
 }
 
 ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.my-work {
-  padding: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  list-style-type: none;
 }
 
 .project-link-icons img {
@@ -155,14 +141,15 @@ footer h1 {
 }
 
 footer img {
-  max-width: 400px;
+  object-fit: cover;
+  object-position: right;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 footer {
-  display: flex;
-  justify-content: space-around;
-  padding: 30px 50px;
-  gap: 20px;
+  background-color: oklch(0.715 0.143 215.221);
 }
 
 .mail {
@@ -176,9 +163,141 @@ footer {
 footer .profiles-icons {
   display: flex;
   gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 footer .profiles-icons i {
   font-size: 2.2em;
   color: black;
+}
+
+.footer-text {
+  margin: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  footer {
+    display: flex;
+    padding: 30px 20px;
+  }
+
+  footer .profiles-icons {
+    justify-content: flex-start;
+  }
+
+  footer img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  h1 {
+    text-align: start;
+    margin: 20px;
+  }
+
+  header {
+    position: relative;
+    display: block;
+  }
+
+  figure {
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 20px;
+    float: left;
+    max-width: 325px;
+  }
+
+  figcaption {
+    transform: translate(60%, -525%);
+    max-width: 400px;
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+    background: none;
+    font-size: 2.7em;
+  }
+
+  header > section {
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 100px;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  header > section h1 {
+    text-align: right;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1001px) {
+  header {
+    position: relative;
+    flex-wrap: nowrap;
+    padding-top: 40px;
+    margin: 0px 40px 40px 40px;
+  }
+
+  figure {
+    max-height: 250px;
+    position: relative;
+    display: inline-block;
+  }
+
+  header > section {
+    margin-top: 30px;
+  }
+
+  figure > img {
+    max-height: 300px;
+    width: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  h1 {
+    text-align: start;
+  }
+
+  header .profiles-icons {
+    justify-content: flex-end;
+  }
+
+  .my-work {
+    padding: 40px;
+  }
+
+  ul {
+    gap: 20px;
+  }
+
+  footer img {
+    max-width: 400px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 50px;
+    gap: 20px;
+  }
+
+  footer .profiles-icons {
+    justify-content: start;
+  }
+}
+
+@media (min-width: 1440px) {
+  main {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  main::before {
+    max-width: 1440px;
+    min-height: 40vh;
+  }
 }
